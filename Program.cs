@@ -33,7 +33,7 @@ namespace WebWordCounter
                 
                 string[] words = task1.XXXXXXXXXX;                
                 
-                XXXXXXXXXX Task.Run(() => {
+                await Task.Run(() => {
                     n = GetCountForWord(words, w);
                 });
                 
