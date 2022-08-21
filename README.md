@@ -1,17 +1,15 @@
-Markdown Live Preview
-```
-
-
-WebWordCounter
+# WebWordCounter
 A simple console program that let you count how many times a word appears in a web (including metadata)
 
-Setup instructions
+### Setup instructions
 You need to have installed .NET Core 3.1 or above
 
-Usage
-Open a shell
-Change the working directory
-Type in console: dotnet run
+### Usage
+- Open a shell
+- Change the working directory
+- Type in console: dotnet run
+
+```
 WEB WORD COUNTER
 A program that count how many times a word appears in a web
 
@@ -26,3 +24,4 @@ The word appears 32 times.
 Type the URL or exit:
 exit
 END
+```
