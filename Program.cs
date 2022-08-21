@@ -12,23 +12,21 @@ namespace WebWordCounter
     {
         public static async Task Main()
         {
-            string url = null;
-            string w = null;
+            string url = null, w = null;
             int n = 0;
 
-            Console.WriteLine("WEB WORD COUNTER\n");
-            Console.WriteLine("Programa que cuenta\ncuántas veces aparece\nen una web que se indique\nla palabra que se quiera.\n");
+            Console.WriteLine("WEB WORD COUNTER\nA program that count how many times a word appears in a web");
 
             while(true)
             {
-                Console.WriteLine("Escribe la url o exit:");
+                Console.WriteLine("\nType the URL or exit:");
                 url = Console.ReadLine();
                 if (String.Equals(url.Trim().ToUpper(),"EXIT")) break;
                 if (!url.StartsWith("http")) continue;
 
                 Task<string[]> task1 = Task.Run(() => CreateWordArray(url));
 
-                Console.WriteLine("Escribe la palabra:");
+                Console.WriteLine("\nType the word you want to search:");
                 w = Console.ReadLine();
                 
                 string[] words = task1.Result;                
@@ -37,11 +35,10 @@ namespace WebWordCounter
                     n = GetCountForWord(words, w);
                 });
                 
-                Console.WriteLine("La palabra aparece {0} veces.", n);
+                Console.WriteLine("\nThe word appears {0} times.\n", n);
             }
 
-            Console.WriteLine("FIN\n");
-
+            Console.WriteLine("END\n");
         }
 
         private static int GetCountForWord(string[] words, string term)
@@ -61,27 +58,3 @@ namespace WebWordCounter
         }
     }
 }
-
-
-// > dotnet run
-// WEB WORD COUNTER
-//
-// Programa que cuenta
-// cuántas veces aparece
-// en una web que se indique
-// la palabra que se quiera.
-//
-// Escribe la url o exit:
-// https://es.wikipedia.org/wiki/Microsoft_Windows
-// Escribe la palabra:
-// linux
-// La palabra aparece 22 veces.
-// Escribe la url o exit:
-// https://es.wikipedia.org/wiki/GNU/Linux
-// Escribe la palabra:
-// Windows
-// La palabra aparece 8 veces.
-// Escribe la url o exit:
-// exit
-// FIN
-
